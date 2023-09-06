@@ -1,3 +1,30 @@
+@font-face {
+  font-family: "joystix-monospace";
+  src: url("fonts/joystix-monospace.otf");
+}
+
+.grid-wrapper{
+  font-family: "joystix-monospace", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-title{
+  padding: 8px 0;
+}
+
+.options-header{
+  display: flex;
+  padding-bottom: 4px;
+}
+
+.option-buttons{
+  display: flex;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
 .grid-container{
   display: flex;
   flex-direction: column;
@@ -10,14 +37,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25px;
+}
+
+.sizeBtn{
+  padding: 5px 10px;
+  font-family: "joystix-monospace", sans-serif;
 }
 
 .column{
   display: flex;
   background-color: whitesmoke;
-  height: 25px;
-  width: 25px;
   border: solid;
   border-width: 1px;
 }
