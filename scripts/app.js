@@ -1,6 +1,23 @@
 let isDrawing = false;
+let selectedColor = "black";
 
-function initEventHandlers(){
+function initColorOptionEventHandlers(){
+  let buttons = document.querySelectorAll(".colorBtn");
+  let curSelectedBtn = document.querySelector(".selected");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      if(button.classList.contains("selected")){
+        return;
+      }
+      selectedColor = button.id;
+      button.classList.add("selected");
+      curSelectedBtn.classList.remove("selected");
+      curSelectedBtn = button;
+    }); 
+  });
+}
+
+function initSizeBtnEventHandlers(){
   let buttons = document.querySelectorAll(".sizeBtn");
   let gridContainer = document.querySelector(".grid-container");
   buttons.forEach((button) => {
@@ -29,8 +46,14 @@ function initEventHandlers(){
       generateGrid(selectedSize, selectedSize, boxSize);
     });
   });
-  gridContainer.addEventListener("mousedown", () => {
+}
+
+function initGridEventHandlers(){
+  let gridContainer = document.querySelector(".grid-container");
+  gridContainer.addEventListener("mousedown", (e) => {
     isDrawing = true;
+    const gridItem = e.target;
+    gridItem.style.backgroundColor = selectedColor;
   });
   gridContainer.addEventListener("mouseup", () => {
     isDrawing = false;
@@ -42,7 +65,7 @@ function initEventHandlers(){
     if (isDrawing) {
         const gridItem = e.target;
         if (gridItem.classList.contains("column")) {
-            gridItem.style.backgroundColor = "black"; // Change the drawing color as needed
+            gridItem.style.backgroundColor = selectedColor;
         }
     }
   });
@@ -85,4 +108,7 @@ function generateGrid(height, width, boxSize){
   }
 }
 
-initEventHandlers();
+
+initSizeBtnEventHandlers();
+initGridEventHandlers();
+initColorOptionEventHandlers();

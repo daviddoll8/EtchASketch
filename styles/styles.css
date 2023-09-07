@@ -57,5 +57,120 @@ body{
 
 .column{
   display: flex;
-  background-color:aquamarine;
+  background-color:white;
 }
+
+.options-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.color-grid-wrapper{
+  display: flex;
+  gap: 8px;
+}
+
+.footer-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.options-footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-option-text{
+  font-size: 14px;
+}
+
+.colorBtn{
+  background-color: white;
+  border: none;
+  padding: 6px 6px;
+}
+
+button.black span{
+  border: 1px solid black; 
+  background-color: black; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.blue span{
+  border: 1px solid blue; 
+  background-color: blue; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.green span{
+  border: 1px solid green; 
+  background-color: green; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.red span{
+  border: 1px solid red; 
+  background-color: red; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.orange span{
+  border: 1px solid orange; 
+  background-color: orange; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.yellow span{
+  border: 1px solid yellow; 
+  background-color: yellow; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.purple span{
+  border: 1px solid purple; 
+  background-color: purple; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.brown span{
+  border: 1px solid brown; 
+  background-color: brown; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.pink span{
+  border: 1px solid pink; 
+  background-color: pink; 
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+button.selected{
+  background-color: rgba(114, 238, 32, 0.808);
+}
+
+
+
