@@ -1,5 +1,14 @@
 let isDrawing = false;
 let selectedColor = "black";
+let selectedCanvasSize = 16;
+
+function initClearButtonEventHandler(){
+  let clearButton = document.querySelector(".clear-button");
+  clearButton.addEventListener("click", (e) => {
+    console.log(clearButton);
+    clearGrid();
+  });
+}
 
 function initColorOptionEventHandlers(){
   let buttons = document.querySelectorAll(".colorBtn");
@@ -17,17 +26,33 @@ function initColorOptionEventHandlers(){
   });
 }
 
+function clearGrid(){
+  let cells = document.querySelectorAll(".column");
+  cells.forEach((cell) => {
+    cell.style.backgroundColor = "white";
+  });
+}
+
+function deleteGrid(){
+  let gridContainer = document.querySelector(".grid-container");
+  while(gridContainer.hasChildNodes()){
+    gridContainer.removeChild(gridContainer.lastChild);
+  }
+}
+
 function initSizeBtnEventHandlers(){
   let buttons = document.querySelectorAll(".sizeBtn");
   let gridContainer = document.querySelector(".grid-container");
+  let defaultBoxSize = 40;
+  generateGrid(selectedCanvasSize, selectedCanvasSize, defaultBoxSize);
   buttons.forEach((button) => {
     button.addEventListener("click", (e) =>{
-      let selectedSize = button.textContent.split("x")[0];
+      let curSelectedSizeButton = document.querySelector("button.select-size");
+      curSelectedSizeButton.classList.remove("select-size");
+      button.classList.add("select-size");
+      selectedCanvasSize = button.textContent.split("x")[0];
       let boxSize = 0;
-      while(gridContainer.hasChildNodes()){
-        gridContainer.removeChild(gridContainer.lastChild);
-      }
-      switch (selectedSize) {
+      switch (selectedCanvasSize) {
         case "16":
           boxSize = 40;
           break;
@@ -43,7 +68,8 @@ function initSizeBtnEventHandlers(){
         default:
           boxSize = 25;
       }
-      generateGrid(selectedSize, selectedSize, boxSize);
+      deleteGrid();
+      generateGrid(selectedCanvasSize, selectedCanvasSize, boxSize);
     });
   });
 }
@@ -108,7 +134,7 @@ function generateGrid(height, width, boxSize){
   }
 }
 
-
+initClearButtonEventHandler();
 initSizeBtnEventHandlers();
 initGridEventHandlers();
 initColorOptionEventHandlers();
